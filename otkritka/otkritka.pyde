@@ -1,0 +1,25 @@
+
+def setup():
+    frameRate(15)
+    size(600,400)
+def draw():
+    razmer = random(10,30)
+    background(0)
+    fill(random(10,255),random(10,255),random(10,255))
+    for step in range(6):
+        ellipse(random(10,500),random(10,300),razmer,razmer)
+    textSize(40)
+    push()
+    translate(240,300)
+    text(u"С Новым Годом!",30,30)
+    pop()
+    push()
+    fill(0,100,0)
+    translate(150,300)
+    triangle(80,0,    -80,0,    0,-80)
+    pop()
+    push()
+    fill(0,100,0)
+    translate(150,380)
+    triangle(80,0,    -80,0,    0,-80)
+    pop()
