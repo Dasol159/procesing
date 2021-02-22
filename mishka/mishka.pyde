@@ -1,11 +1,12 @@
 x=50
 x1=-50
 angle=1
+mode="по часовой"
 def setup():
     size(400,600)
 def draw():
     global x,x1
-    global angle
+    global angle,mode
     background(255)
     fill(222, 184, 135)
     translate(200,300)
@@ -25,4 +26,14 @@ def draw():
     translate(40,-15)
     rotate(radians(angle))
     ellipse(0,20,40,60)
-    angle+=1
+    if mode=="против часовой":
+        angle=angle-1
+    if mode=="по часовой":
+        angle=angle+1
+    if angle==250:
+        mode="против часовой"
+    if angle==200:
+        mode="по часовой"
+
+    
+    
