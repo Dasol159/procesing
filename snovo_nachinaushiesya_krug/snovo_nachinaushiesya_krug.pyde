@@ -1,10 +1,10 @@
 x=0
-mode=20
+mode=-1
 y=200
-mode2=40
+mode2=-1
 y1=0
-mode3=40
-mode4=40
+mode3=-1
+mode4=-1
 x1=0
 def setup():
     size(600,400)
