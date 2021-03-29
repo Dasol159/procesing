@@ -6,6 +6,7 @@ def draw():
     global final
     background(255)
     if final == "no":
+        frameRate(10)
         fill(184,145,159)
         rect(250,400,100,50)
         rect(50,400,100,50)
@@ -13,6 +14,9 @@ def draw():
         textSize(15)
         text(u"Черный",270,430)
         text(u"Белый",70,430)
+        fill(random(100,255),random(100,255),random(100,255))
+        textSize(18)
+        text(u"ВЫБИРАЙ, И РЕШИ НА ЧЬЕЙ СТОРОНЕ ТЫыы",5,250)
     if final == "fail":
         background(255,0,0)
         textSize(20)
