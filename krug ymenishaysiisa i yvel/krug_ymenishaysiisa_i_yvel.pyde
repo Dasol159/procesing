@@ -1,11 +1,28 @@
+x=200
 def setup():
     size(600,600)
     background(255)
+    frameRate(10)
 def draw():
-    ellipse(300,300,200,200)
+    global x
+    
+    if keyPressed:
+        if key == 'd' or key == 'D':
+            ellipse(300,300,200,200)
+            fill(random(200,255),random(200,255),random(200,255))
+
     if keyPressed:
         if key == 'w' or key == 'W':
-            ellipse(300,300,300,300)
+            x=300
+            ellipse(300,300,x,x)
+            fill(random(200,255),random(200,255),random(200,255))
+
     if keyPressed:
         if key == 's' or key == 'S':
-            ellipse(300,300,100,100)
+            x=100
+            ellipse(300,300,x,x)
+            fill(random(200,255),random(200,255),random(200,255))
+            
+    if keyPressed:
+        if key == 'a' or key == 'A':
+            background(255)
