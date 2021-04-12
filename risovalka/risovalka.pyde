@@ -1,20 +1,18 @@
 x=10
 y=10
 x1=10
+tolsh=10
 def setup():
     size(600,600)
     background(255)
-
+    
 def draw():
-    global x, y, x1
+    global x, y, x1, tolsh
 
 
     strokeWeight(tolsh)
+    
     if keyPressed:
-        if key == 'w' or key == 'W':
-            
-        if key == 's' or key == 'S':
-
         if key == '1':
             stroke(129,223,122)
         if key == '2':
@@ -35,5 +33,13 @@ def draw():
             stroke(228,145,244)
         if key == '0':
             stroke(60,130,166)
+        if key == 'q' and 'Q':
+            background(255)
+        if keyCode == UP:
+            tolsh=tolsh+3
+        if keyCode == DOWN:
+            tolsh=tolsh-3
+        if tolsh < 0:
+            tolsh = tolsh+3
     if mousePressed:
         line(mouseX,mouseY,pmouseX,pmouseY)
