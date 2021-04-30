@@ -8,7 +8,7 @@ modeY=-5
 y1=0
 x1=0
 x3=200
-y3=450
+y3=400
 x4=390
 x5=0
 x6=0
@@ -34,7 +34,7 @@ def draw():
     textSize(20)
     fill(153,50,204)
     text(chet,50,50)
-    y=y+mode2
+    y = y + mode2
     if x >= 380:
         mode=-2
     if x <= 10:
@@ -45,12 +45,14 @@ def draw():
          textSize(20)
          text(u"ТЫ ПРОИГРАЛ",135,300)
     if y <= 10:
-        mode2=2
+        mode2=5
     if keyPressed:
         if keyCode == LEFT:
             x3=x3-3
         if keyCode == RIGHT:
             x3=x3+3
     if x>x3 and x<x3+x8 and y>y3 and y<y3+y8:
-        mode2=mode2-3
-        chet=chet+2
+        mode2=-5
+        chet=chet+1
+    
+
