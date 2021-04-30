@@ -22,7 +22,7 @@ def setup():
 def draw():
     global x, modeX, mode, mode2, y, modeY, y1, x1, x8, y8, x3, y3, x4, x5, x6, y4, y5, y6
     background(255)
-    fill(random(200,255),random(200,255),random(200,255))
+    fill(153,50,204)
     rect(x3,y3,x8,y8)
     ellipse(x,y,15,15)
     fill(0)
