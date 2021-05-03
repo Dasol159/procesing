@@ -6,7 +6,6 @@ y=0
 def setup():
     global img,imgVerh
     fullScreen()
-    background(0,255,0)
     img = loadImage("pravo.png")
     imgVerh = loadImage("pravo.png")
     imageMode(CENTER)
@@ -15,13 +14,15 @@ def draw():
     translate(x,y)
     global img,imgVerh,rotat
     rotate(radians(rotat))
+    img = loadImage("pravo.png")
     rect(0, 0, 50, 50)
     background(0,255,0)
     fill(128, 79, 179)
     image(img, 0, 0)
     imageMode(CENTER)
     rectMode(CENTER)
-    
+    img = loadImage("tras.png")
+
     
     
     
