@@ -1,40 +1,46 @@
+rotat=0
 img = 0
 imgVerh = 0
-x=300
-y=300
+x=0
+y=0
 def setup():
     global img,imgVerh
-    size(600,600)
-    background(255)
-    img = loadImage("vniz.png")
-    imgVerh = loadImage("verh.png")
-
+    fullScreen()
+    background(0,255,0)
+    img = loadImage("pravo.png")
+    imgVerh = loadImage("pravo.png")
+    imageMode(CENTER)
+    rectMode(CENTER)
 def draw():
-    global img,imgVerh
-    background(255)
+    translate(x,y)
+    global img,imgVerh,rotat
+    rotate(radians(rotat))
+    rect(0, 0, 50, 50)
+    background(0,255,0)
     fill(128, 79, 179)
-    rect(x, y, 50, 50)
-    image(img, x, y)
+    image(img, 0, 0)
+    imageMode(CENTER)
+    rectMode(CENTER)
+    
+    
+    
     
     
 def keyPressed():
-    global x, y, img, imgVerh
+    global x, y, img, imgVerh, rotat
     if key == CODED:
         if keyCode == UP: 
-            y = y-5
+            rotat=rotat-5
             img = imgVerh
-            
         elif keyCode == DOWN:
-            y = y+5
-            img = loadImage("vniz.png")
-
+            rotat=rotat+5
+            img = loadImage("pravo.png")
         if keyCode == RIGHT: 
-            x = x+5
+            x = x + cos(radians(rotat)) * 10
+            y = y + sin(radians(rotat)) * 10
             img = loadImage("pravo.png")
 
         elif keyCode == LEFT:
-            x = x-5   
-            img = loadImage("levo.png")
- 
-            
-             
+            x = x - cos(radians(rotat)) * 10
+            y = y - sin(radians(rotat)) * 10
+            img = loadImage("pravo.png")
