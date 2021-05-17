@@ -1,4 +1,4 @@
-rejim=0
+rejim="не cтрелять"
 x1=0
 y1=0
 rotat=0
@@ -12,7 +12,7 @@ pah=0
 pahVerh=0
 def setup():
     frameRate(30)
-    global tank,tankVerh,tras,trasVerh,pah,pahVerh,x1,y1
+    global tank,tankVerh,tras,trasVerh,pah,pahVerh,x1,y1,x,y
     fullScreen()
     imageMode(CENTER)
     rectMode(CENTER)    
@@ -21,10 +21,10 @@ def setup():
     tras = loadImage("tras.png")
     trasVerh = loadImage("tras.png")
     pah = loadImage("pah.png")
-    pahVerh = loadImage("pah.png")
+    #pahVerh = loadImage("pah.png")
 def draw():
-    global tank,rotat, tras,pah,x1,y1,rejim
-    rejim="не стрелять"
+    global tank,rotat, tras,pah,x1,y1,rejim,x,y
+    
     
     imageMode(CENTER)
     rectMode(CENTER)    
@@ -38,11 +38,13 @@ def draw():
     #image(tank, 0, 0)
     image(tank, 0, 0, 300, 200)   
     pop()
-    if rejim == "cтрелять":
-            image(pah,x1,y1)
-            x1=x1+1
-    elif rejim == "не стрелять":
-            pah=pahVerh    
+    if rejim == "стрелять":
+        image(pah,x1,y1)
+        x1=x1+10
+        
+    #image(pah,x1,y1)        
+    text(rejim,20,30)
+    
 def keyPressed():
     global x, y, tank, tankVerh, rotat, pah,pahVerh,x1,y1,rejim
     if key == CODED:
@@ -60,8 +62,7 @@ def keyPressed():
             x = x - cos(radians(rotat)) * 10
             y = y - sin(radians(rotat)) * 10
             tank = loadImage("pravo.png")
-        if key == " ":
-            rejim="стрелять"
-            image(pah,x1,y1)
-            x1=x
-            y1=y
+    if key == " ":
+        rejim= "стрелять"
+        x1=x+width / 2
+        y1=y+height / 2
