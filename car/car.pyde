@@ -1,4 +1,6 @@
 ule=0
+x2=0
+y2=0
 may=0
 may1=0
 time=0
@@ -31,14 +33,15 @@ def setup():
     pah = loadImage("pah.png")
     #pahVerh = loadImage("pah.png")
 def draw():
-    global tank,rotat, tras,pah,x1,y1,rejim,x,y,SHOOT,ldf,ule,time,timer
+    global tank,rotat, tras,pah,x1,y1,rejim,x,y,SHOOT,ldf,ule,time,timer,x2,y2
     
     
     imageMode(CENTER)
     rectMode(CENTER)    
     background(0,255,0)
-    push()
     translate(width / 2, height / 2)
+
+    push()
     image(tras,0,0)
     translate(x,y)
     rotate(radians(rotat))
@@ -46,18 +49,27 @@ def draw():
     #image(tank, 0, 0)
     image(tank, 0, 0, 300, 200)   
     pop()
+
+    
+
+
+    
     if rejim == u"стрелять":
-        image(tank,x1,y1)
+        push()
+        
         x1=x1+10        
+        translate(x2,y2)
+        rotate(radians(rotat))
+        image(pah,0,0)
         ldf = 1
         boom = 1
-        pah = x1
-        pah = y1
         ule = rotat
-        SHOOT = False
+        SHOOT = True
+        pop()
     timer1()
     text(floor(time/60),60,60)
     text(rejim,20,30)
+    
 def keyPressed():
     global x, y, tank, tankVerh, rotat, pah,pahVerh,x1,y1,rejim,SHOOT, may, may1
     if key == CODED:
@@ -74,6 +86,10 @@ def keyPressed():
             y = y - sin(radians(rotat)) * 10
     if key == " ":
         rejim= u"стрелять"
+        x1 = x
+        y1=y
+        x1=x1+10
+
 def timer1():
     global may1, time
     if time > 0:
